@@ -3,10 +3,13 @@
 @section('content')
     <!-- Hero Section -->
     @if ($message = Session::get('success'))
-        		<div class="btn btn--accent">
-            		<p>{{ $message }}</p>
-        		</div>
-    		@endif
+        <div class="overlay">
+            <div class="btn btn--accent msg__modal">
+                <p>Your message sent</p>
+                <button class="close">&#x2715</button>
+            </div>
+        </div>
+    @endif
     <section class="hero">
         <div class="container">
             <div class="hero__wrapper">
@@ -68,11 +71,10 @@
             <div class="about">
                 <h3 class="about__intro">👋 Hi, I'm Khurshidbek</h3>
                 <p class="about__bio">
-                     I am form Andijan, Uzbekistan. I was born in 1996 and started coding in 2021.
+                     I am from Andijan, Uzbekistan. I was born in 1996 and started coding in 2021.
                      I am a strong junior who writes clean code. Laravel ecosystem is my choice in other frameworks. I can work both remote and offline. My services are web site Backend and REST API .
                 </p>
                 <a class="about__link" href="#contact">Contact Me<i class="bi bi-arrow-right"></i></a>
-
                 <h4 class="about__skillsTitle">Skills</h4>
                 <ul class="about__skillsList">
                     <li class="btn btn--light">PHP</li>
@@ -100,7 +102,7 @@
                     <p>Call Me: <a href="tel:+998912801774"> (+998 91) 2801774</a></p>
                 </div>
 
-                <form class="contact__form" action="{{ route('sendMessage') }}" method="post">
+                <form class="contact__form" action="{{ route('sendMessage') }}" method="POST">
                     @csrf
                     <div class="contact__fields">
                         <label for="name">Name</label>
@@ -122,7 +124,21 @@
                 </form>
             </div>
         </div>
+        <script>
+            let modalOverlay = document.querySelector(".overlay");
+            let modal = document.querySelector(".msg__modal");
+            let closeBtn = document.querySelector(".close")
+
+            closeBtn.addEventListener("click", ()=>{
+                modalOverlay.classList.add("hide_modal")
+            })
+
+            modalOverlay.addEventListener("click", ()=>{
+                modalOverlay.classList.add("hide_modal")
+            })
+
+            </script>
+
     </section>
 @endsection
-
 
