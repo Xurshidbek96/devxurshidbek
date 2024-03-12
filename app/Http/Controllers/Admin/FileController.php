@@ -45,20 +45,10 @@ class FileController extends Controller
         $requestData = $request->all();
 
         if($request->hasFile('img'))
-        {
-            $file = $request->file('img');
-            $imageName = time().'-'.$file->getClientOriginalName();
-            $file->move('images/', $imageName);
-            $requestData['img'] = $imageName;
-        }
+            $requestData['img'] = $this->upload_file('img', 'files');
 
         if($request->hasFile('file'))
-        {
-            $file = $request->file('file');
-            $fileName = time().'-'.$file->getClientOriginalName();
-            $file->move('files/', $fileName);
-            $requestData['file'] = $fileName;
-        }
+            $requestData['file'] = $this->upload_file('file', 'files');
 
         File::create($requestData);
 
@@ -98,7 +88,7 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, File $file)
     {
 
         $request->validate(array(
@@ -110,23 +100,18 @@ class FileController extends Controller
 
         if($request->hasFile('img'))
         {
-            $this->unlink_img($id);
-            $file = $request->file('img');
-            $imageName = time().'-'.$file->getClientOriginalName();
-            $file->move('images/', $imageName);
-            $requestData['img'] = $imageName;
+            $this->unlink_file($file->img);
+            $requestData['img'] = $this->upload_file('img', 'files');
         }
 
         if($request->hasFile('file'))
         {
-            $this->unlink_file($id);
-            $file = $request->file('file');
-            $fileName = time().'-'.$file->getClientOriginalName();
-            $file->move('files/', $fileName);
-            $requestData['file'] = $fileName;
+            $this->unlink_file($file->file);
+            $requestData['file'] = $this->upload_file('file', 'files');
         }
 
-        File::find($id)->update($requestData);
+
+        $file->update($requestData);
 
         return redirect()->route('files.index')->with('success', 'Update done');
     }
@@ -137,28 +122,12 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(File $file)
     {
-        $this->unlink_file($id);
-        $this->unlink_img($id);
 
-        File::find($id)->delete();
-
+        $this->unlink_file($file->img);
+        $this->unlink_file($file->file);
+        $file->delete();
         return redirect()->route('files.index')->with('success', 'Delete done');
-    }
-
-    // extra functions
-    public function unlink_file($id){
-        $file = File::find($id);
-        if(isset($file->file) && file_exists(public_path('/files/'.$file->file))){
-            unlink(public_path('/files/'.$file->file));
-        }
-    }
-
-    public function unlink_img($id){
-        $file = File::find($id);
-        if(isset($file->img) && file_exists(public_path('/images/'.$file->img))){
-            unlink(public_path('/images/'.$file->img));
-        }
     }
 }

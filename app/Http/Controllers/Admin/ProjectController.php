@@ -42,10 +42,10 @@ class ProjectController extends Controller
 
         if($request->hasFile('img'))
         {
-            $file = $request->file('img');
-            $imageName = time().'-'.$file->getClientOriginalName();
-            $file->move('images/', $imageName);
-            $requestData['img'] = $imageName;
+            $request->validate(array(
+                'img' => 'mimes:png,jpg|max:5000',
+            ));
+            $requestData['img'] = $this->upload_file('img', 'files/projects');
         }
 
         Project::create($requestData);
@@ -86,21 +86,20 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Project $project)
     {
         $requestData = $request->all();
         if($request->hasFile('img'))
         {
-            $this->unlink_file($id);
-
-            $file = $request->file('img');
-            $imageName = time().'-'.$file->getClientOriginalName();
-            $imagePath = $file->move('images/', $imageName);
-            $requestData['img'] = $imageName;
+            $request->validate(array(
+                'img' => 'mimes:png,jpg|max:5000',
+            ));
+            $this->unlink_file($project->img);
+            $requestData['img'] = $this->upload_file('img', 'files/projects');
 
         }
 
-       Project::find($id)->update($requestData);
+        $project->update($requestData);
 
         return redirect()->route('projects.index')->with('success', 'Update done');
     }
@@ -111,19 +110,12 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Project $project)
     {
-        $this->unlink_file($id);
-        Project::find($id)->delete();
+        $this->unlink_file($project->img);
+        $project->delete();
 
         return redirect()->route('projects.index')->with('success', 'Delete done');
     }
 
-    // extra functions
-    public function unlink_file($id){
-        $project = Project::find($id);
-        if(isset($project->img) && file_exists(public_path('/images/'.$project->img))){
-            unlink(public_path('/images/'.$project->img));
-        }
-    }
 }

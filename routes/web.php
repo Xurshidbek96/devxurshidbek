@@ -32,14 +32,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::prefix('admin/')->middleware('auth')->group(function () {
+Route::prefix('admin/')->group(function () {
 
     Route::get('home', function () {
         return view('admin.layouts.dashboard');
     })->name('admin.home');
+
     Route::resource('projects', ProjectController::class);
     Route::resource('files', FileController::class);
     Route::get('getMessage', [PagesController::class, 'getMessage'])->name('getMessage');
+    Route::get('showMessage/{id}', [PagesController::class, 'showMessage'])->name('showMessage');
     Route::delete('deletetMessage/{id}', [PagesController::class, 'deletetMessage'])->name('deletetMessage');
 });
 

@@ -36,7 +36,7 @@
                         <li><a href="/#about">About</a></li>
                         <li><a href="/#contact">Contact</a></li>
                     </ul>
-                    <a class="btn btn--main" href="assets/resume.pdf" download><i class="bi bi-download"></i> Resume</a>
+                    <a class="btn btn--main" href="{{ $file->file }}" download><i class="bi bi-download"></i> Resume</a>
                 </nav>
 
                 <h1 class="header__logo">
@@ -48,7 +48,7 @@
 
                 <div class="header__contact">
                     <a href="mailto:mominovxurshidbek66@gmail.com">Write My Email</a></a>
-                    <a class="btn btn--light" href="/files/{{ $file->file }}" target="_blank">
+                    <a class="btn btn--light" href="{{ $file->file }}" target="_blank">
                         <i class="bi bi-download"></i> Resume
                     </a>
                 </div>

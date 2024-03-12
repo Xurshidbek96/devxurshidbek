@@ -36,7 +36,7 @@ active
                                 <td>
                                     <p>Resume : </p>
                                 </td>
-                                <td><a href="/files/{{$file->file }}" download="">Donwnload</a></td>
+                                <td><a href="{{$file->file }}" download="">Donwnload</a></td>
                             </tr>
 
 
@@ -44,7 +44,7 @@ active
                                 <td>
                                     <p>Rasm : </p>
                                 </td>
-                                <td><img src="/images/{{ $file->img }}" alt="" width="100px"></td>
+                                <td><img src="{{ $file->img }}" alt="" width="100px"></td>
                             </tr>
 
 

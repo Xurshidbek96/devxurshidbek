@@ -43,7 +43,7 @@ active
 									<td>{{++$loop->index}}</td>
 									<td>{{$item->name}}</td>
                                     <td>{{$item->title}}</td>
-                                    <td><img src="/images/{{ $item->img }}" alt="" width="100px"></td>
+                                    <td><img src="{{ $item->img }}" alt="" width="100px"></td>
 
 									<td>
 										<form action="{{ route('projects.destroy',$item->id) }}" method="POST">

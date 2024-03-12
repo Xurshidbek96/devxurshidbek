@@ -45,8 +45,8 @@ active
 								<tr>
 									<td>{{++$loop->index}}</td>
 									<td>{{$item->title}}</td>
-                                    <td><img src="/images/{{ $item->img }}" alt="" width="100px"></td>
-                                    <td><a href="/files/{{ $item->file }}" target="_blank">Donwnload</a></td>
+                                    <td><img src="{{ $item->img }}" alt="" width="100px"></td>
+                                    <td><a href="{{ $item->file }}" target="_blank">Donwnload</a></td>
 									<td>
 										<form action="{{ route('files.destroy',$item->id) }}" method="POST">
 

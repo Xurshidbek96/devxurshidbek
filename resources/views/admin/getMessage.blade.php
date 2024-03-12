@@ -28,7 +28,8 @@ active
 								<th>№</th>
 								<th>Name</th>
                                 <th>Email</th>
-                                <th>Message</th>
+                                <th>Date</th>
+                                <th>Status</th>
 								<th>Action</th>
 							</tr>
 						</thead>
@@ -43,9 +44,12 @@ active
 									<td>{{++$loop->index}}</td>
 									<td>{{$item->name}}</td>
                                     <td>{{$item->email}}</td>
-                                    <td>{{$item->message}}</td>
+                                    <td>{{$item->created_at}}</td>
+                                    <td>@if ($item->status == 0) <span class="badge bg-danger">Unseen</span> @else <span class="badge bg-success">Seen</span>@endif</td>
 									<td>
 										<form action="{{ route('deletetMessage',$item->id) }}" method="POST">
+
+                                            <a class="btn btn-primary" href="{{ route('showMessage',$item->id) }}"><ion-icon name="eye-outline"></ion-icon></a>
 
 						                    @csrf
 						                    @method('DELETE')

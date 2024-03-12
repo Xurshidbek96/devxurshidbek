@@ -50,7 +50,7 @@ active
                                 <td>
                                     <p>Rasm : </p>
                                 </td>
-                                <td><img src="/images/{{ $project->img }}" alt="" width="100px"></td>
+                                <td><img src="{{ $project->img }}" alt="" width="100px"></td>
                             </tr>
 
 

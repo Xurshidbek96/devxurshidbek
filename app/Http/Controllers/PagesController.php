@@ -37,6 +37,13 @@ class PagesController extends Controller
         return view('admin.getMessage', compact('getMessages'));
     }
 
+    public function showMessage($id){
+
+        $getMessage = \App\Models\Message::find($id);
+        $getMessage->update(['status' => 1]);
+        return view('admin.showMessage', compact('getMessage'));
+    }
+
     public function deletetMessage($id)
     {
 

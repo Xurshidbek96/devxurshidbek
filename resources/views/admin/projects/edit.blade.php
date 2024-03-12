@@ -42,7 +42,7 @@
 
                         <strong> Image :</strong>
                         <input type="file" name="img" class="form-control"> <br>
-                        <img src="/images/{{ $project->img }}" alt="" width="100px">
+                        <img src="{{ $project->img }}" alt="" width="100px">
 
                         <input type="submit" value="Submit">
 

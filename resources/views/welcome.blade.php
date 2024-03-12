@@ -14,7 +14,7 @@
         <div class="container">
             <div class="hero__wrapper">
                 <div class="hero__img">
-                    <img src="/images/{{$file->img}}" alt="Profile Picture" />
+                    <img src="{{$file->img}}" alt="Profile Picture" />
                 </div>
                 <h1 class="hero__title animate__animated animate__slideInUp">
                     PHP (Laravel) <br />
@@ -72,19 +72,17 @@
                 <h3 class="about__intro">👋 Hi, I'm Khurshidbek</h3>
                 <p class="about__bio">
                      I am from Andijan, Uzbekistan. I was born in 1996 and started coding in 2021.
-                     I am a strong junior who writes clean code. Laravel ecosystem is my choice in other frameworks. I can work both remote and offline. My services are web site Backend and REST API .
+                     I am a middle who writes clean code. Laravel ecosystem is my choice in other frameworks. I can work both remote and offline. My services are web site Backend and REST API .
                 </p>
                 <a class="about__link" href="#contact">Contact Me<i class="bi bi-arrow-right"></i></a>
                 <h4 class="about__skillsTitle">Skills</h4>
                 <ul class="about__skillsList">
+                    <li class="btn btn--light">Python</li>
                     <li class="btn btn--light">PHP</li>
                     <li class="btn btn--light">Laravel</li>
                     <li class="btn btn--light">MySQL</li>
                     <li class="btn btn--light">PostgreSQL</li>
                     <li class="btn btn--light">RestAPI</li>
-                    <li class="btn btn--light">HTML</li>
-                    <li class="btn btn--light">CSS</li>
-                    <li class="btn btn--light">Bootstrap</li>
                 </ul>
             </div>
         </div>

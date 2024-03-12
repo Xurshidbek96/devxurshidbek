@@ -1,7 +1,7 @@
 <div class="portfolio">
     @foreach ($projects as $item)
         <div class="portfolio__box">
-            <img class="portfolio__img" src="/images/{{ $item->img }}" alt="Portfolio Items" />
+            <img class="portfolio__img" src="{{ $item->img }}" alt="Portfolio Items" />
             <div class="portfolio__info">
                 <h3 class="portfolio__title">{{ $item->name }}</h3>
                 <p class="portfolio__content">

@@ -41,7 +41,7 @@
 
                         <strong> Image :</strong>
                         <input type="file" name="img" class="form-control"> <br>
-                        <img src="/images/{{ $file->img }}" alt="" width="100px">
+                        <img src="{{ $file->img }}" alt="" width="100px">
 
                         <input type="submit" value="Submit">
 
