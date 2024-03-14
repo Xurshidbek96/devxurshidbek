@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller
 {
@@ -50,5 +51,9 @@ class PagesController extends Controller
         \App\Models\Message::find($id)->delete();
 
         return redirect()->route('getMessage')->with('success', 'Delete done');
+    }
+    public function logins(){
+        $logins =DB::table('logins')->orderBy('id', 'desc')->paginate(10);
+        return view('admin.logins', compact('logins'));
     }
 }

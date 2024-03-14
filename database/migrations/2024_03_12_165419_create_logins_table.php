@@ -18,7 +18,9 @@ return new class extends Migration
             $table->string('ip');
             $table->string('user_agent');
             $table->string('user_id');
+            $table->string('url');
             $table->string('login_at');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

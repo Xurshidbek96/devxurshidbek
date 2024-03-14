@@ -49,6 +49,13 @@
 				</a>
 			</li>
 
+            <li class="@yield('logins')">
+				<a href="{{ route('logins') }}">
+					<i class='bx bxs-shopping-bag-alt' ></i>
+					<span class="text">Logins</span>
+				</a>
+			</li>
+
 		</ul>
 		<ul class="side-menu">
 			<li>
