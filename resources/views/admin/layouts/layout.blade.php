@@ -28,6 +28,12 @@
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
+            <li class="@yield('companies')">
+				<a href="{{ route('companies.index') }}">
+					<i class='bx bxs-shopping-bag-alt' ></i>
+					<span class="text">Companies</span>
+				</a>
+			</li>
 			<li class="@yield('projects')">
 				<a href="{{ route('projects.index') }}">
 					<i class='bx bxs-shopping-bag-alt' ></i>

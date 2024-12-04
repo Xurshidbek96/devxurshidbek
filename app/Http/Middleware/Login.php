@@ -21,7 +21,7 @@ class Login
 
         $user = auth()->user() ? auth()->user()->name : 'guest';
 
-        $browser = $request->header('User-Agent');
+        // $browser = $request->header('User-Agent');
         $browser = Browser::browserFamily();
 
 

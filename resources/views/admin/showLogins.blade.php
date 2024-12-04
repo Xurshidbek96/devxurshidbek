@@ -18,7 +18,7 @@ active
 			<div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>Logins</h3>
+						<h3>Logins : {{ $login->ip }}</h3>
                         <form action="#" method="GET">
                             <input type="date" name="date" value="{{$date}}">
                             <input type="submit" value="Filter">
@@ -29,11 +29,11 @@ active
 						<thead>
 							<tr>
 								<th>№</th>
+                                <th>User</th>
                                 <th>Agent</th>
-                                <th>IP</th>
                                 <th>URL</th>
                                 <th>Login Date</th>
-                                <th>Action</th>
+
 							</tr>
 						</thead>
 						<tbody>
@@ -45,11 +45,10 @@ active
 					        @foreach($logins as $item)
 								<tr>
 									<td>{{++$loop->index}}</td>
+                                    <td>{{$item->user_id}}</td>
                                     <td>{{$item->user_agent}}</td>
-                                    <td>{{$item->ip}}</td>
                                     <td>{{$item->url}}</td>
                                     <td>{{$item->login_at}}</td>
-                                    <td><a class="btn btn-primary" href="{{ route('showLogin',$item->id) }}"><ion-icon name="eye-outline"></ion-icon></a></td>
 								</tr>
 							@endforeach
 						</tbody>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
@@ -39,12 +40,14 @@ Route::prefix('admin/')->middleware('auth')->group(function () {
     })->name('admin.home');
 
     Route::resource('projects', ProjectController::class);
+    Route::resource('companies', CompanyController::class);
     Route::resource('files', FileController::class);
     Route::get('getMessage', [PagesController::class, 'getMessage'])->name('getMessage');
     Route::get('showMessage/{id}', [PagesController::class, 'showMessage'])->name('showMessage');
     Route::delete('deletetMessage/{id}', [PagesController::class, 'deletetMessage'])->name('deletetMessage');
 
     Route::get('logins', [PagesController::class, 'logins'])->name('logins');
+    Route::get('showLogin/{id}', [PagesController::class, 'showLogin'])->name('showLogin');
 });
 
 require __DIR__.'/auth.php';

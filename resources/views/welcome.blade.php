@@ -14,14 +14,15 @@
         <div class="container">
             <div class="hero__wrapper">
                 <div class="hero__img">
-                    <img src="{{$file->img}}" alt="Profile Picture" />
+                    <img src="{{ $file->img }}" alt="Profile Picture" />
                 </div>
                 <h1 class="hero__title animate__animated animate__slideInUp">
                     PHP (Laravel) <br />
                     Backend developer
                 </h1>
                 <p class="hero__content animate__animated animate__slideInUp">
-                    I am Kurshidbek from Uzbekistan. I have been working as a Backend developer since 2021.<br> I'm ready to code
+                    I am Kurshidbek from Uzbekistan. I have been working as a Backend developer since 2021.<br> I'm ready to
+                    code
                 </p>
                 <ul class="social " style="z-index: 55">
 
@@ -29,14 +30,16 @@
                         <a href="https://github.com/Xurshidbek96" target="_blank"><i class="bi bi-github"></i></a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/xurshidbekmuminov/" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.instagram.com/xurshidbekmuminov/" target="_blank"><i
+                                class="bi bi-instagram"></i></a>
                     </li>
 
                     <li>
                         <a href="https://t.me/backend_php_dev" target="_blank"><i class="bi bi-telegram"></i></a>
                     </li>
                     <li>
-                        <a href="https://www.facebook.com/xurshidbek.mominov.77/" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.facebook.com/xurshidbek.mominov.77/" target="_blank"><i
+                                class="bi bi-facebook"></i></a>
                     </li>
                 </ul>
             </div>
@@ -46,20 +49,33 @@
     <!-- Portfolio Section -->
     <section class="section animate__animated animate__slideInUp" id="portfolio">
         <div class="container">
-          <div class="section__header section__header">
-            <h2 class="section__title">Portfolio</h2>
-            <p class="section__subtitle">See my latest work</p>
-          </div>
-    @include('sections.portfolio')
+            <div class="section__header section__header">
+                <h2 class="section__title">Portfolio</h2>
+                <p class="section__subtitle">See my latest work</p>
+            </div>
+            @include('sections.portfolio')
 
-    <div class="section__footer">
-        <a href="/portfolio">
-          Ask for More Projects
-          <i class="bi bi-arrow-right"></i>
-        </a>
-      </div>
-    </div>
-  </section>
+            <div class="section__footer">
+                <a href="/portfolio">
+                    Ask for More Projects
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Section -->
+    <section class="section animate__animated animate__slideInUp" id="portfolio">
+        <div class="container">
+            <div class="section__header section__header">
+                <h2 class="section__title">Companies</h2>
+                <p class="section__subtitle">Companies I worked for</p>
+            </div>
+            @include('sections.company')
+
+
+        </div>
+    </section>
 
     <!-- About Me Section -->
     <section class="section" id="about">
@@ -71,8 +87,9 @@
             <div class="about">
                 <h3 class="about__intro">👋 Hi, I'm Khurshidbek</h3>
                 <p class="about__bio">
-                     I am from Andijan, Uzbekistan. I was born in 1996 and started coding in 2021.
-                     I am a middle who writes clean code. Laravel ecosystem is my choice in other frameworks. I can work both remote and offline. My services are web site Backend and REST API .
+                    I am from Andijan, Uzbekistan. I was born in 1996 and started coding in 2021.
+                    I am a middle who writes clean code. Laravel ecosystem is my choice in other frameworks. I can work both
+                    remote and offline. My services are web site Backend and REST API .
                 </p>
                 <a class="about__link" href="#contact">Contact Me<i class="bi bi-arrow-right"></i></a>
                 <h4 class="about__skillsTitle">Skills</h4>
@@ -127,16 +144,14 @@
             let modal = document.querySelector(".msg__modal");
             let closeBtn = document.querySelector(".close")
 
-            closeBtn.addEventListener("click", ()=>{
+            closeBtn.addEventListener("click", () => {
                 modalOverlay.classList.add("hide_modal")
             })
 
-            modalOverlay.addEventListener("click", ()=>{
+            modalOverlay.addEventListener("click", () => {
                 modalOverlay.classList.add("hide_modal")
             })
-
-            </script>
+        </script>
 
     </section>
 @endsection
-
